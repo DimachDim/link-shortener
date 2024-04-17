@@ -1,0 +1,99 @@
+/* Заголовок первого уровня */
+h1{
+    text-align: center;
+    border-bottom: 1px solid blue;
+}
+
+/* Заголовок второго уровня */
+h2{
+    text-align: center;
+    border-bottom: 1px solid blue;
+}
+
+/* Форма */
+form{
+    background-color: rgb(236, 245, 248);
+    text-align: center;
+    font-size: 14pt;
+}
+/* Инпуты */
+form input{
+    height: 30px;
+    min-width: 700px;
+    font-size: 20pt;
+}
+/* Кнопка добавить */
+.btn-add{
+    background-color: rgb(122, 199, 240);
+    margin: 20px 0;
+    border: 0ch;
+    height: 40px;
+    cursor: pointer;
+}
+
+
+
+
+/* Контейнер с короткой ссылкой */
+.short-url-container{
+    display: grid;
+    max-width: 700px;
+    margin: auto;
+}
+/* Надпись */
+.short-url-container label{
+    text-align: center;
+    font-size: 14pt;
+}
+/* Строка с коротким url */
+.short-url-container input{
+    position: relative;
+    margin: auto;
+    width: 98%;
+    height: 30px;
+    font-size: 20pt;
+}
+/* Кнопка копировать */
+.short-url-container button{
+    width: 100%;
+    background-color: rgb(122, 199, 240);
+    margin: 20px 0;
+    border: 0ch;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20pt;
+}
+
+
+
+
+
+
+/* Список */
+#contact-list{
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Элемент списка */
+#contact-list li{
+    display: grid;
+    grid-template-columns: 8fr 10fr 1fr;
+    margin-bottom: 5px;
+    border: 1px solid rgb(208, 208, 212);
+    text-align: left;
+    font-size: 20pt;
+    padding-left: 20px;
+}
+
+/* Параграфы элемента списка */
+#contact-list li p{
+    margin:0 ;
+}
+
+/* Кнопка удаления */
+#contact-list li button{
+    background-color: rgb(214, 105, 105);
+    cursor: pointer;
+    border: 0ch;
+}
