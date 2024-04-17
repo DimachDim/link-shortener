@@ -26,12 +26,12 @@
     // Если в строке базовый url
     if($url == $BASE_URL)
     {
+
         // Отрисовываем форму для сокращения
         include './templates/formUrls.php';
         // Отрисовываем блок для авторизации
         include './templates/avtorization.php';
     
-
     // Если в строке не базовый url
     }else{
         // Получаем длинную ссылку по указанному url
@@ -69,7 +69,7 @@
     }
     
 ?>
-
+    
 
     <!--AJAX-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

@@ -4,6 +4,7 @@
 class UrlOperator{
     constructor(){
         this.url = './routerUrls.php'      // Место роутера
+        this.eventAdded = false;            // Для фикса бага множественного срабатывания создания url
     }
 
     // Делает запросы на сервер. data - данные для сервера, callback - функция обрабатывающая ответ сервера
@@ -14,6 +15,7 @@ class UrlOperator{
             data: data,
             success: function(response){
                 callback(response)
+                console.log('ajax')
             }
         });
     }
@@ -22,8 +24,12 @@ class UrlOperator{
     subForm(idForm, userId = null){
         // idForm - id формы
 
+        // Для фикса бага множественного срабатывания создания url
+        if (this.eventAdded) {
+            return; // Если событие уже добавлено, просто выходим
+        }
+
         const form = document.getElementById(idForm);       // Получаем форму по id
-        
 
         form.addEventListener('submit', (event)=>{
             // Отменяем отправку для исключения обнавления
@@ -40,6 +46,10 @@ class UrlOperator{
                 // Отправляем длинный url и id пользователя
                 this.createUrl(longUrl, userId);
             }
+        
+        // Для фикса бага множественного срабатывания создания url
+        this.eventAdded = true; // Указываем, что событие уже добавлено
+
         })
 
     }
@@ -47,13 +57,14 @@ class UrlOperator{
     // Создает короткий url.
     createUrl(longUrl, userId = null){
         // longUrl - длинная ссылка
-
+        
         // Формируем данные для отправки ajax запроса
         const data = {
             action: 'createUrl',
             longUrl: longUrl,
             userId: userId
         }
+        console.log('createUrl')
 
         // отправляем данные методу с обрабатывающему ajax
         this.ajax(data, (response)=>{
@@ -65,7 +76,6 @@ class UrlOperator{
             // Передаем содержимое в input
             this.fillInput('short-url', response)
         })
-        
     }
 
     // Метод передает текст в input с указанным классом.

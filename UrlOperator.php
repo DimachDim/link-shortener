@@ -37,18 +37,28 @@ class UrlOperator{
 
             // Стартуем подключения к базе данных
             $db = $this->dbConnection();
-    
-            // Создаем SQL запрос
-            $query = "INSERT INTO urls SET long_url=:longUrl, short_url=:shortUrl, user_id = :userId";
+            
+            // Если id пользователя передавали
+            if($userId != null){
+                // Создаем SQL запрос
+                $query = "INSERT INTO urls SET long_url=:longUrl, short_url=:shortUrl, user_id = :userId";
+            }else{
+                // Создаем SQL запрос
+                $query = "INSERT INTO urls SET long_url=:longUrl, short_url=:shortUrl";
+            }
             // Подготавливаем запрос
             $stmt = $db->prepare($query);
     
             // Значения для вставки
             $stmt->bindValue(":longUrl", $longUrl);
             $stmt->bindValue(":shortUrl", $shortUrl);
-            $stmt->bindValue(":userId", $userId);
 
-            // Выполняем запрос
+            // Если id пользователя передавали
+            if($userId != null){
+                $stmt->bindValue(":userId", $userId);
+            }
+
+            // Если запись создалась
             if($stmt->execute()){
                 // Возвращаем короткую ссылку
                 return $shortUrl; 

@@ -3,7 +3,7 @@
 <h1>Сократитель ссылок</h1>
 
 <!-- Форма добавления нового url -->
-<form method="post" action="" id='form-add-url'>
+<form  id='form-add-url'>
 
     <label for="long-url">Укажите длинный URL</label><br>
     <input type="text" id="long-url" name="long-url"><br>
