@@ -15,7 +15,6 @@ class UrlOperator{
             data: data,
             success: function(response){
                 callback(response)
-                console.log('ajax')
             }
         });
     }
@@ -64,7 +63,6 @@ class UrlOperator{
             longUrl: longUrl,
             userId: userId
         }
-        console.log('createUrl')
 
         // отправляем данные методу с обрабатывающему ajax
         this.ajax(data, (response)=>{
