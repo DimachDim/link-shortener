@@ -143,9 +143,16 @@ class UrlOperator{
             arrDataUrls.forEach(element => {
                 // Создаем элемент списка
                 let li = document.createElement('li');
+                // Создаем ссылку
+                let a = document.createElement('a');
+                // Добавляем ей атрибутов
+                a.setAttribute('href', element.short_url);
+                a.textContent = element.short_url;
+                a.setAttribute('target', '_blank');
+
                 // Добавляем содержимое в li
                 li.innerHTML = 
-                `   <div>${element.short_url}</div>
+                `   <div>${a.outerHTML}</div>
                     <div>${element.count != null ? element.count : ''}</div>
                     <div>${element.long_url}</div>
                 `
