@@ -27,13 +27,13 @@
     function clickCreateUrl(){
         // Извлекаем id пользователя
         const userId = <?php echo $userId;?>;
-
+        // Обрабатываем создание новой ссылки
         urlOperator.subForm('form-add-url', userId);
 
         // Если есть пользователь
         if(userId){
             // Получаем ссылки пользователя
-            const urls = urlOperator.getUrls(userId);
+            urlOperator.getUrls(userId);
         }
     }
 </script>
