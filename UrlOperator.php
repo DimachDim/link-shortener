@@ -39,13 +39,14 @@ class UrlOperator{
             $db = $this->dbConnection();
     
             // Создаем SQL запрос
-            $query = "INSERT INTO urls SET long_url=:longUrl, short_url=:shortUrl";
+            $query = "INSERT INTO urls SET long_url=:longUrl, short_url=:shortUrl, user_id = :userId";
             // Подготавливаем запрос
             $stmt = $db->prepare($query);
     
             // Значения для вставки
             $stmt->bindValue(":longUrl", $longUrl);
             $stmt->bindValue(":shortUrl", $shortUrl);
+            $stmt->bindValue(":userId", $userId);
 
             // Выполняем запрос
             if($stmt->execute()){
@@ -148,16 +149,17 @@ class UrlOperator{
             $db = $this->dbConnection();
 
             // готовим запрос SQL
-            $sql = "SELECT * FROM urls WHERE user_id = :userId";
+            $sql = "SELECT * FROM urls WHERE user_id = :user_id";
 
             // Выполняем запрос      
             $result = $db->prepare($sql);
-            $result->execute([':userId' => $userId]);
+            $result->execute([':user_id' => 7]);
 
             // Прооверяем найдена ли записи
             if($result->rowCount() > 0)
             {
-                return $result->fetchAll(PDO::FETCH_ASSOC);
+                return $userId;
+                //return $result->fetchAll(PDO::FETCH_ASSOC);
             }else{
                 return false;
             }

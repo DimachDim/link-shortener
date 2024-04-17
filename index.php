@@ -52,10 +52,10 @@
             // Если есть такой пользователь
             if($responseByUser)
             {
-                // Запрашиваем его ссылки
-                $urls = $UrlOperator->getUrls($responseByUser);
                 $userId = $responseByUser;
-
+                // Запрашиваем его ссылки
+                $urls = $UrlOperator->getUrls($userId);
+                var_dump($urls);
                 // Отрисовываем форму для сокращения
                 include './templates/formUrls.php';
                 // Отрисовываем список его ссылок

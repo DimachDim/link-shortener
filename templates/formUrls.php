@@ -8,7 +8,7 @@
     <label for="long-url">Укажите длинный URL</label><br>
     <input type="text" id="long-url" name="long-url"><br>
             
-    <input type="submit" value="Создать короткую ссылку" class="btn-add" onclick="urlOperator.subForm('form-add-url', <?php echo $userId; ?>)">
+    <input type="submit" value="Создать короткую ссылку" class="btn-add" onclick="urlOperator.subForm('form-add-url', <?php echo $userId;?>)">
 </form>
 
 <div class="short-url-container">
