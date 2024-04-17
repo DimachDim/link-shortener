@@ -159,17 +159,16 @@ class UrlOperator{
             $db = $this->dbConnection();
 
             // готовим запрос SQL
-            $sql = "SELECT * FROM urls WHERE user_id = :user_id";
+            $sql = "SELECT * FROM urls WHERE user_id = :userId";
 
             // Выполняем запрос      
             $result = $db->prepare($sql);
-            $result->execute([':user_id' => 7]);
+            $result->execute([':userId' => $userId]);
 
             // Прооверяем найдена ли записи
             if($result->rowCount() > 0)
             {
-                return $userId;
-                //return $result->fetchAll(PDO::FETCH_ASSOC);
+                return $result->fetchAll(PDO::FETCH_ASSOC);
             }else{
                 return false;
             }

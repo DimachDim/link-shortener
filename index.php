@@ -16,6 +16,7 @@
     include 'main.php';
 
     $userId = 0;    // Будет хранить id пользователя если он авторизован
+    $urls = [];
 
     // Получаем url строку браузера
     $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
