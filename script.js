@@ -121,6 +121,41 @@ class UrlOperator{
             this.fillInput('user-input', response)
         })
     }
+
+    // Получат список ссылок пользователя
+    getUrls(userId){
+        // Формируем данные для отправки
+        const data = {
+            action: 'getUrls',
+            userId: userId
+        }
+
+        // Делаем ajax запрос
+        this.ajax(data, (response)=>{
+            // Добавляем полученные ссылки в список
+
+            // Парсим ответ сервера
+            const arrDataUrls = JSON.parse(response);
+            // Ссылаемся на созданный список
+            const ul = document.getElementById('url-list');
+            // Очищаем от старых данных
+            ul.innerHTML ='';
+            
+            // Перебираем массив данных
+            arrDataUrls.forEach(element => {
+                // Создаем элемент списка
+                let li = document.createElement('li');
+                // Добавляем содержимое в li
+                li.innerHTML = 
+                `   <div>${element.short_url}</div>
+                    <div>${element.count != null ? element.count : ''}</div>
+                    <div>${element.long_url}</div>
+                `
+                // Добавляем элемент в список
+                ul.appendChild(li);
+            });
+        })
+    }
         
 }
 

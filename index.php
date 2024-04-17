@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="./Style.css">
 </head>
 
-<body">
+<body>
 
 <?php
     // Используем специальный класс для работы с базой url
@@ -16,7 +16,7 @@
     include 'main.php';
 
     $userId = 0;    // Будет хранить id пользователя если он авторизован
-    $urls = [];
+
 
     // Получаем url строку браузера
     $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -54,9 +54,7 @@
             if($responseByUser)
             {
                 $userId = $responseByUser;
-                // Запрашиваем его ссылки
-                $urls = $UrlOperator->getUrls($userId);
-                var_dump($urls);
+                
                 // Отрисовываем форму для сокращения
                 include './templates/formUrls.php';
                 // Отрисовываем список его ссылок

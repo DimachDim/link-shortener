@@ -27,7 +27,16 @@ switch($action)
         // Вызываем метод создания пользователя и сохраняем ответ
         $response = $UrlOperator->createUser();
         break;
+    
+    
+    // ПОЛУЧЕНИЕ списка url
+    case 'getUrls':
+        // Достаем данные
+        $userId = $_GET['userId'];
 
+        // Отдаем методу
+        $response = $UrlOperator->getUrls($userId);
+        break;
 }
 
 // Кодируем ответ в json

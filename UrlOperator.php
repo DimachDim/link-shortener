@@ -168,7 +168,8 @@ class UrlOperator{
             // Прооверяем найдена ли записи
             if($result->rowCount() > 0)
             {
-                return $result->fetchAll(PDO::FETCH_ASSOC);
+                // Отправляем отзеркаленный список
+                return array_reverse($result->fetchAll(PDO::FETCH_ASSOC));
             }else{
                 return false;
             }
