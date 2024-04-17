@@ -178,4 +178,38 @@ class UrlOperator{
             echo "Error: " . $exception->getMessage();
         }
     }
+
+    public function incrementCountUrl($shortUrl)
+    {
+       try {
+            // Стартуем подключения к базе данных
+            $db = $this->dbConnection();
+
+            // готовим запрос SQL
+            $sql = "SELECT * FROM urls WHERE short_url = :shortUrl";
+
+            // Выполняем запрос      
+            $result = $db->prepare($sql);
+            $result->execute([':shortUrl' => $shortUrl]);
+
+            // Если запись найдена в БД
+            if($result->rowCount() > 0)
+            {
+                // Смотрим значение счетчика и увеличиваем на 1
+                $newCount = $result->fetch(PDO::FETCH_ASSOC)['count']+1;
+                // Готовим запрос
+                $sqlUpdate = "UPDATE urls SET count = :newCount WHERE short_url = :shortUrl";
+                $updateStmt = $db->prepare($sqlUpdate);
+
+                // выполняем запрос
+                $updateStmt->execute([':newCount' => $newCount, ':shortUrl' => $shortUrl]);
+
+            }else{
+                return false;
+            }
+    
+        }catch(PDOException $exception){
+            echo "Error: " . $exception->getMessage();
+        } 
+    }
 }

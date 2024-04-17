@@ -41,6 +41,8 @@
         // Если есть такая сокращенная ссылка
         if($response)
         {
+            // Добавляем +1 к посещению ссылки
+            $UrlOperator->incrementCountUrl($url);
             // Перенаправляем на длинную ссылку
             header('Location: ' . $response);
 
