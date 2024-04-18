@@ -14,7 +14,7 @@
     // Используем специальный класс для работы с базой url
     include './UrlOperator.php';
     // Смотрим настрокий приложения
-    include 'main.php';
+    require_once  'main.php';
 
     $userId = 0;    // Будет хранить id пользователя если он авторизован
 
@@ -26,7 +26,7 @@
     $UrlOperator = new UrlOperator;
     
     // Если в строке базовый url
-    if($url == $BASE_URL)
+    if($url == BASE_DOMAIN)
     {
 
         // Отрисовываем форму для сокращения

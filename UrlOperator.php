@@ -1,19 +1,19 @@
 <?php
 
 include './generateRandomString.php';    // Генератор случайной строки
-
+require_once  'main.php';                // Смотрим настрокий приложения
 
 class UrlOperator{
     
     // Данные подключения к базе данных
-    private $host = "localhost";            
-    private $db_name = "link_shortener";
-    private $username = "root";
-    private $password = "";
+    private $host = DB_HOST;            
+    private $db_name = DB_NAME;
+    private $username = DB_USER;
+    private $password = DB_PASS;
     public $conn;
 
     // Базовый домен
-    private $domain = 'http://linl-shortener.com/';
+    private $domain = BASE_DOMAIN;
 
 
     public function dbConnection()
