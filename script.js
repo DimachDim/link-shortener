@@ -143,6 +143,7 @@ class UrlOperator{
             arrDataUrls.forEach(element => {
                 // Создаем элемент списка
                 let li = document.createElement('li');
+                li.setAttribute('class', 'list-group-item')
                 // Создаем ссылку
                 let a = document.createElement('a');
                 // Добавляем ей атрибутов

@@ -5,10 +5,11 @@
 <!-- Форма добавления нового url -->
 <form  id='form-add-url'>
 
-    <label for="long-url">Укажите длинный URL</label><br>
-    <input type="text" id="long-url" name="long-url"><br>
+    <label for="long-url" class="form-label">Укажите длинную ссылку</label><br>
+    <input class="form-control" type="text" id="long-url" name="long-url"><br>
             
     <input 
+        class="btn btn-primary"
         type="submit" 
         value="Создать короткую ссылку" 
         class="btn-add" 
@@ -17,9 +18,9 @@
 </form>
 
 <div class="short-url-container">
-    <label for="long-url">Короткая ссылка</label>
-    <input id='short-url'/>
-    <button id="copy-short-url" onclick="urlOperator.copyUrl('short-url')">Копировать</button>
+    <label for="long-url" class="form-label">Короткая ссылка</label>
+    <input id='short-url' class="form-control"/>
+    <button class="btn btn-primary" id="copy-short-url" onclick="urlOperator.copyUrl('short-url')">Копировать</button>
 </div>
 
 <script>
