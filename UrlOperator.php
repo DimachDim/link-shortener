@@ -1,7 +1,7 @@
 <?php
 
 include './generateRandomString.php';    // Генератор случайной строки
-require_once  'main.php';                // Смотрим настрокий приложения
+require_once  './main.php';                // Смотрим настрокий приложения
 
 class UrlOperator{
     
