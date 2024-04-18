@@ -1,7 +1,7 @@
 <?php
 
 // Используем специальный класс для работы с контактами
-include './php/UrlOperator.php';
+include './UrlOperator.php';
 
 
 $UrlOperator = new UrlOperator;             // Экземпляр класса

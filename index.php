@@ -12,7 +12,7 @@
 
 <?php
     // Используем специальный класс для работы с базой url
-    include './php/UrlOperator.php';
+    include './UrlOperator.php';
     // Смотрим настрокий приложения
     include 'main.php';
 
