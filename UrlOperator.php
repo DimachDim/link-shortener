@@ -15,7 +15,7 @@ class UrlOperator{
     // Базовый домен
     private $domain = BASE_DOMAIN;
 
-
+    // Для подключения к базе
     public function dbConnection()
     {
         $this->conn = null;    
@@ -28,6 +28,7 @@ class UrlOperator{
         return $this->conn;
     }
 
+    // Создает короткий url
     public function createUrl($longUrl, $userId = null)
     {
         try {
@@ -71,6 +72,7 @@ class UrlOperator{
         return false; // Не удалось создать запись
     }
 
+    // Получает длинный url по короткому url
     public function getLongUrl($shortUrl)
     {
         try {
@@ -96,7 +98,8 @@ class UrlOperator{
             echo "Error: " . $exception->getMessage();
         }
     }
-   
+    
+    // Создает ссылку для нового пользоваьтеля
     public function createUser()
     {
         try {
@@ -126,6 +129,7 @@ class UrlOperator{
         }
     }
 
+    // Получает id пользователя в базе по url пользователя
     public function getUserId($urlUser)
     {
         try {
@@ -152,6 +156,7 @@ class UrlOperator{
         }
     }
 
+    // Получает все записи о ссылках по id пользователя
     public function getUrls($userId)
     {
         try {
@@ -179,6 +184,7 @@ class UrlOperator{
         }
     }
 
+    // Увеличивает поле count в базе на 1
     public function incrementCountUrl($shortUrl)
     {
        try {
