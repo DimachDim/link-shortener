@@ -99,7 +99,7 @@ class UrlOperator{
         }
     }
     
-    // Создает ссылку для нового пользоваьтеля
+    // Создает ссылку для нового пользоваьтеля ! авторизация
     public function createUser()
     {
         try {
@@ -129,7 +129,7 @@ class UrlOperator{
         }
     }
 
-    // Получает id пользователя в базе по url пользователя
+    // Получает id пользователя в базе по url пользователя  ! авторизация
     public function getUserId($urlUser)
     {
         try {
@@ -156,7 +156,7 @@ class UrlOperator{
         }
     }
 
-    // Получает все записи о ссылках по id пользователя
+    // Получает все записи о ссылках по id пользователя 
     public function getUrls($userId)
     {
         try {
