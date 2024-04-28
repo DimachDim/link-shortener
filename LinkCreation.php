@@ -1,6 +1,6 @@
 <?php
 
-include './generateRandomString.php';    // Генератор случайной строки
+include_once './generateRandomString.php';    // Генератор случайной строки
 require_once  './main.php';                // Смотрим настрокий приложения
 
 class LinkCreation{

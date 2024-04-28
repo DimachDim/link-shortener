@@ -1,10 +1,17 @@
 <?php
 
-// Используем специальный класс для работы с контактами
-include './UrlOperator.php';
+
+// Используем классы для обработки логики
+include './LinkCreation.php';
+include './LinkProcessing.php';
+include './Authorization.php';
 
 
-$UrlOperator = new UrlOperator;             // Экземпляр класса
+// Создаем экземпляры классов для обработки логики
+$LinkCreation = new LinkCreation;
+$LinkProcessing = new LinkProcessing;
+$Authorization = new Authorization;
+
 $action = $_GET['action'];                  // action
 $response = null;                           // Хранит ответ
 
@@ -18,14 +25,14 @@ switch($action)
         $userId = $_GET['userId'];
 
         // Отдаем методу
-        $response = $UrlOperator->createUrl($longUrl, $userId);
+        $response = $LinkCreation->createUrl($longUrl, $userId);
         break;
 
     
     // СОЗДАНИЕ пользователя
     case 'createUser':
         // Вызываем метод создания пользователя и сохраняем ответ
-        $response = $UrlOperator->createUser();
+        $response = $Authorization->createUser();
         break;
     
     
@@ -35,7 +42,7 @@ switch($action)
         $userId = $_GET['userId'];
 
         // Отдаем методу
-        $response = $UrlOperator->getUrls($userId);
+        $response = $LinkProcessing->getUrls($userId);
         break;
 }
 

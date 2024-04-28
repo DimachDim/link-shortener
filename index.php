@@ -11,8 +11,11 @@
 <body>
 
 <?php
-    // Используем специальный класс для работы с базой url
-    include './UrlOperator.php';
+    // Используем классы для обработки логики
+    include './LinkCreation.php';
+    include './LinkProcessing.php';
+    include './Authorization.php';
+
     // Смотрим настрокий приложения
     require_once  'main.php';
 
@@ -22,8 +25,11 @@
     // Получаем url строку браузера
     $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     
-    // Создаем экземпляр классса для работы с url и базой данных
-    $UrlOperator = new UrlOperator;
+
+    // Создаем экземпляры классов для обработки логики
+    $LinkCreation = new LinkCreation;
+    $LinkProcessing = new LinkProcessing;
+    $Authorization = new Authorization;
     
     // Если в строке базовый url
     if($url == BASE_DOMAIN)
@@ -37,13 +43,13 @@
     // Если в строке не базовый url
     }else{
         // Получаем длинную ссылку по указанному url
-        $response = $UrlOperator->getLongUrl($url);
+        $response = $LinkProcessing->getLongUrl($url);
 
         // Если есть такая сокращенная ссылка
         if($response)
         {
             // Добавляем +1 к посещению ссылки
-            $UrlOperator->incrementCountUrl($url);
+            $LinkProcessing->incrementCountUrl($url);
             // Перенаправляем на длинную ссылку
             header('Location: ' . $response);
 
@@ -51,7 +57,7 @@
         }else{
             
             // Проверяем есть ли пользователь с таким url
-            $responseByUser = $UrlOperator->getUserId($url);
+            $responseByUser = $Authorization->getUserId($url);
             
             // Если есть такой пользователь
             if($responseByUser)

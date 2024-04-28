@@ -1,7 +1,7 @@
 <?php
 
 // БАзовый домен
-define('BASE_DOMAIN', 'http://linl-shortener.com/');
+define('BASE_DOMAIN', 'http://link-shortener/');
 
 // НАстрока базы данных
 define('DB_HOST', 'localhost');
