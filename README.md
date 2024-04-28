@@ -1,4 +1,4 @@
-![Demonstration GIF](./media//presentation.gif)
+![Demonstration GIF](./media/presentation.gif)
 
 # Файлы
 - index.php - содержит всебе логику перенаправления по ссылкам и отрисовки шаблонов.
@@ -13,3 +13,6 @@
 # Папки
 - js - содержит файлы JavaScript.
 - templates - содержит в себе шаблоны верстки.
+
+# База данных
+![Demonstration GIF](./media/db.jpg)
