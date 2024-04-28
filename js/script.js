@@ -19,7 +19,7 @@ class UrlOperator{
         });
     }
 
-    // Обрабатывает отправку формы
+    // Обрабатывает отправку формы ! dom
     subForm(idForm, userId = null){
         // idForm - id формы
 
@@ -53,7 +53,7 @@ class UrlOperator{
 
     }
 
-    // Создает короткий url.
+    // Создает короткий url. 
     createUrl(longUrl, userId = null){
         // longUrl - длинная ссылка
         
@@ -76,7 +76,7 @@ class UrlOperator{
         })
     }
 
-    // Метод передает текст в input с указанным классом.
+    // Метод передает текст в input с указанным классом. ! dom
     fillInput(idInput, text=''){
 
         // Получаем input по id
@@ -85,7 +85,7 @@ class UrlOperator{
         input.value = text;
     }
 
-    // Метод копирует содержимое элемента id которого указан
+    // Метод копирует содержимое элемента id которого указан ! dom
     copyUrl(id){
         // Получаем элемент по id
         const element = document.getElementById(id);
@@ -103,7 +103,7 @@ class UrlOperator{
         document.body.removeChild(tempTextArea);
     }
 
-    // Создание нового пользователя на сервере
+    // Создание нового пользователя на сервере ! user
     createUser(){
         // Формируем данные для отправки ajax запроса
         const data = {
@@ -120,7 +120,7 @@ class UrlOperator{
         })
     }
 
-    // Получить список ссылок пользователя
+    // Получить список ссылок пользователя ! user
     getUrls(userId){
         // Формируем данные для отправки
         const data = {
