@@ -12,9 +12,9 @@
 
 <?php
     // Используем классы для обработки логики
-    include './LinkCreation.php';
-    include './LinkProcessing.php';
-    include './Authorization.php';
+    include './php/LinkCreation.php';
+    include './php/LinkProcessing.php';
+    include './php/Authorization.php';
 
     // Смотрим настрокий приложения
     require_once  'main.php';

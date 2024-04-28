@@ -2,7 +2,7 @@
 
 
 // Используем классы для обработки логики
-include './LinkCreation.php';
+include_once(__DIR__ . DIRECTORY_SEPARATOR .'./LinkCreation.php');
 include './LinkProcessing.php';
 include './Authorization.php';
 

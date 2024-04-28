@@ -1,6 +1,6 @@
 <?php
 
-require_once  './main.php';                // Смотрим настрокий приложения
+include_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'main.php');  // Смотрим настрокий приложения
 
 class LinkProcessing{
     

@@ -1,7 +1,8 @@
 <?php
 
-include_once './generateRandomString.php';    // Генератор случайной строки
-require_once  './main.php';                // Смотрим настрокий приложения
+include_once(__DIR__ . DIRECTORY_SEPARATOR . 'generateRandomString.php');    // Генератор случайной строки
+include_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'main.php');  // Смотрим настрокий приложения
+
 
 class Authorization{
     

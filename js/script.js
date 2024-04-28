@@ -3,7 +3,7 @@
 
 class UrlOperator{
     constructor(){
-        this.url = './routerUrls.php'      // Место роутера
+        this.url = './php/routerUrls.php'      // Место роутера
         this.eventAdded = false;            // Для фикса бага множественного срабатывания создания url
     }
 
